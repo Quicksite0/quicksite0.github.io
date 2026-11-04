@@ -56,6 +56,8 @@
             display: flex;
             flex-direction: column;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            /* Added position relative so the link anchors to this card bounding box */
+            position: relative; 
         }
 
         .card:hover {
@@ -102,6 +104,17 @@
             background-color: #1d4ed8;
         }
 
+        /* Invisible clickable layer that expands to fill the entire .card container */
+        .btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+        }
+
         /* Responsive Breakpoint for Smaller Screens */
         @media (max-width: 850px) {
             .card-grid {
@@ -113,14 +126,21 @@
 <body>
 
     <header>
-        <h1>PyReMon Releases</h1>
-        <p>Choose a version to download directly from the GitHub repository.</p>
+        <h1>Quicksite0 Repository</h1>
     </header>
 
     <main class="card-grid">
 
         <!-- Card 1 -->
-        <article class="card" href="https://quicksite0.github.io/PyReMon/">
+        <article class="card" id="card1">
             <img src="https://github.com/Quicksite0/PyReMon/raw/main/preview-image" alt="PyReMon 1.0 Preview" class="card-image">
             <div class="card-content">
                 <h2 class="card-title">PyReMon</h2>
+                <a href="https://quicksite0.github.io/PyReMon/" class="btn">Download Latest</a>
+            </div>
+        </article>
+
+    </main>
+
+</body>
+</html>
